@@ -17,11 +17,16 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
+    if (testInput === "" ){
+         
+     return "empty"
+    }
    
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+    if (validateInput(pilot) === "empty" || validateInput(copilot)=== "empty" || validateInput(fuelLevel)=== "empty" ||validateInput(cargoLevel)=== "empty"  )
+    throw alert("All fields must be filled in")
 }
 
 async function myFetch() {
