@@ -20,8 +20,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
 function validateInput(testInput) {
     if (testInput === "") {
-        return "empty"
-    } else if (isNaN(Number(testInput))) {
+        return "Empty"
+    } else if (isNaN(Number(testInput))===true) {
         return "Not a Number"
     } else if (isNaN(testInput === false)) {
         return "Is a Number"
@@ -36,30 +36,30 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let pilotStatus = document.getElementById("pilotStatus");
    let copilotStatus = document.getElementById("copilotStatus");
 
-    if (validateInput(pilot) === "empty" || validateInput(copilot) === "empty" || validateInput(fuelLevel) === "empty" || validateInput(cargoLevel) === "empty"){
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
         alert("All fields must be filled in!");
     }  else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number" || validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
     alert("Wrong input! Please enter the correct input.");
     } else {
         pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`;
-        copilot.innerHTML= `co-pilot ${copilot} is ready for launch`;
+        copilotStatus.innerHTML= `Co-pilot ${copilot} is ready for launch`;
         list.style.visibility= "visible";
         let launchStatus = document.getElementById("launchStatus");
         if (fuelLevel<10000 && cargoLevel<=10000){
             fuel.innerHTML = "Fuel level too low for launch";
-            cargoLevel.innerHTML = "Cargo mass low enough for launch";
+            cargo.innerHTML = "Cargo mass low enough for launch";
             launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-            launchStatus.style.color  = "#C7254E";
+            launchStatus.style.color  = "rgb(199, 37, 78)";
         }else if (fuelLevel>=10000 && cargoLevel>10000){
             fuel.innerHTML = "Fuel level high enough for launch";
-            cargoLevel.innerHTML= "Cargo mass too heavy for launch";
-            launchStatus.innerHTML= "Shuttle not ready for launch";
-            launchStatus.style.color  = "#C7254E";
+            cargo.innerHTML= "Cargo mass too heavy for launch";
+            launchStatus.innerHTML= "Shuttle Not Ready for Launch";
+            launchStatus.style.color  = "rgb(199, 37, 78)";
         }else {
             fuel.innerHTML= "Fuel level high enough for launch";
-            cargoLevel.innerHTML= "Cargo mass low enough for launch";
+            cargo.innerHTML= "Cargo mass low enough for launch";
             launchStatus.innerHTML="Shuttle is ready for launch";
-            launchStatus.style.color= "#419F6A";
+            launchStatus.style.color= "rgb(65, 159, 106)";
         }
     }
 }
